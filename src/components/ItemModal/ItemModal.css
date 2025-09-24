@@ -1,0 +1,21 @@
+.item-modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-modal__opened {
+  display: flex;
+}
+
+.item-modal__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.item-modal__caption {
+  font-size: 20px;
+  font-weight: 700;
+}
