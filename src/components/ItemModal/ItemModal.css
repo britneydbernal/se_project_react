@@ -2,20 +2,68 @@
   display: none;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  font-family: "Cabinet Grotesk", sans-serif;
 }
 
 .item-modal__opened {
   display: flex;
 }
 
+.item-modal__content {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 0;
+  max-width: 480px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
 .item-modal__image {
   width: 100%;
   height: auto;
-  object-fit: cover;
   display: block;
+  object-fit: cover;
+}
+
+.item-modal__footer {
+  margin-top: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .item-modal__caption {
   font-size: 20px;
   font-weight: 700;
+  line-height: 24px;
+  margin: 0;
+}
+
+.item-modal__weather {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.item-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.item-modal__close-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
 }
