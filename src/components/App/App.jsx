@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 
 import "./App.css";
-import { coordinates, APIkey } from "../../utils/constants";
+import {
+  coordinates,
+  APIkey,
+  defaultClothingItems,
+} from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
@@ -18,8 +22,9 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
 
+  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+
   const handleCardClick = (card) => {
-    console.log("handleCardClick called with:", card);
     setActiveModal("preview");
     setSelectedCard(card);
   };
@@ -45,9 +50,14 @@ function App() {
     <div className="page">
       <div className="page__content">
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-        <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+        <Main
+          weatherData={weatherData}
+          handleCardClick={handleCardClick}
+          clothingItems={clothingItems}
+        />
       </div>
       <ModalWithForm
+        name="add-garment"
         title="New garment"
         buttonText="Add garment"
         activeModal={activeModal}
