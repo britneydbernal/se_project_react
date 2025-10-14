@@ -32,3 +32,15 @@
 .header__username {
   margin: 0;
 }
+
+.header__controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.header__nav-link {
+  color: black;
+  text-decoration: none;
+}

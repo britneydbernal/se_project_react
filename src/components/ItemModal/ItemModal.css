@@ -67,3 +67,15 @@
   height: 16px;
   display: block;
 }
+
+.item-modal__delete-button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: none;
+  color: rgba(255, 77, 0, 1);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
