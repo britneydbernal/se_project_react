@@ -1,0 +1,4 @@
+# Ignore normalization and vendor CSS files
+
+src/vendor/normalize.css
+src/vendor/fonts/
