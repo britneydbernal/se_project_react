@@ -1,8 +1,15 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding-right: 40px;
+}
+
 .sidebar__user-info {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   gap: 16px;
   align-items: center;
+  margin-bottom: 32px;
 }
 
 .sidebar__username {
@@ -12,10 +19,64 @@
 }
 
 .sidebar__avatar {
-  margin-left: 12px;
-  flex: 0 0 40px;
+  width: 56px;
   height: 56px;
   border-radius: 50%;
   object-fit: cover;
-  display: block;
+}
+
+.sidebar__avatar-placeholder {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Cabinet-Grotesk", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.sidebar__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: none;
+  border: none;
+}
+
+.sidebar__edit-button,
+.sidebar__signout-button {
+  margin-top: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Cabinet-Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  text-align: left;
+  padding: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar__edit-button:hover,
+.sidebar__signout-button:hover {
+  opacity: 0.6;
+}
+
+.sidebar__avatar-placeholder {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Cabinet-Grotesk", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
 }

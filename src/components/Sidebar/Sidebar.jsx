@@ -1,20 +1,45 @@
+import { useContext } from "react";
+import CurrentUserContext from "../../context/CurrentUserContext";
 import "./Sidebar.css";
-import avatar from "../../assets/avatar.svg";
+//import avatar from "../../assets/avatar.svg";
 
-export default function Sidebar() {
-  const username = "Terrance Tegegne";
-  const avatarUrl = avatar;
+export default function Sidebar({ onEditProfileClick, onSignOut }) {
+  const { currentUser } = useContext(CurrentUserContext);
+
+  const getInitial = (name) => {
+    return name ? name.charAt(0).toUpperCase() : "?";
+  };
 
   return (
     <aside className="sidebar">
       <div className="sidebar__user-info">
-        <p className="sidebar__username">{username}</p>
-        <img
-          src={avatarUrl}
-          alt={`Profile avatar of ${username}`}
-          className="sidebar__avatar"
-        />
+        {currentUser?.avatar ? (
+          <img
+            src={currentUser.avatar}
+            alt={`Profile avatar of ${currentUser?.name}`}
+            className="sidebar__avatar"
+          />
+        ) : (
+          <div className="sidebar__avatar-placeholder">
+            {getInitial(currentUser?.name)}
+          </div>
+        )}
+        <p className="sidebar__username">{currentUser?.name}</p>
       </div>
+      <button
+        type="button"
+        className="sidebar__edit-profile-button"
+        onClick={onEditProfileClick}
+      >
+        Change Profile data
+      </button>
+      <button
+        type="button"
+        className="sidebar__signout-button"
+        onClick={onSignOut}
+      >
+        Sign Out
+      </button>
     </aside>
   );
 }
