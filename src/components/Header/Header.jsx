@@ -4,7 +4,6 @@ import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import CurrentUserContext from "../../context/CurrentUserContext";
 import "./Header.css";
 import logo from "../../assets/logo.svg";
-import avatar from "../../assets/avatar.svg";
 
 function Header({
   handleAddClick,
@@ -33,7 +32,7 @@ function Header({
       </p>
       <div className="header__controls">
         <ToggleSwitch />
-        {!isLoggedIn ? (
+        {isLoggedIn ? (
           <button
             onClick={handleAddClick}
             type="button"
@@ -43,7 +42,7 @@ function Header({
           </button>
         ) : null}
       </div>
-      {!isLoggedIn ? (
+      {isLoggedIn ? (
         <NavLink className="header__nav-link" to="/profile">
           <div className="header__user-container">
             <p className="header__username">{currentUser?.name}</p>

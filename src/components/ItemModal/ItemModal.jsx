@@ -4,8 +4,8 @@ import "./ItemModal.css";
 import closeIcon from "../../assets/close.png";
 
 function ItemModal({ activeModal, onClose, card, onDelete }) {
-  const currentUser = useContext(CurrentUserContext);
-  const isOwn = card.owner === currentUser._id;
+  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
+  const isOwn = card.owner === currentUser?._id;
 
   return (
     <div
@@ -25,13 +25,15 @@ function ItemModal({ activeModal, onClose, card, onDelete }) {
         <div className="item-modal__footer">
           <h2 className="item-modal__caption">{card.name}</h2>
           <p className="item-modal__weather">Weather: {card.weather}</p>
-          <button
-            type="button"
-            className="item-modal__delete-button"
-            onClick={() => onDelete(card._id)}
-          >
-            Delete Item
-          </button>
+          {isOwn && (
+            <button
+              type="button"
+              className="item-modal__delete-button"
+              onClick={() => onDelete(card._id)}
+            >
+              Delete Item
+            </button>
+          )}
         </div>
       </div>
     </div>

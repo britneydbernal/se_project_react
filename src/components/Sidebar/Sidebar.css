@@ -47,7 +47,7 @@
   border: none;
 }
 
-.sidebar__edit-button,
+.sidebar__edit-profile-button,
 .sidebar__signout-button {
   margin-top: 20px;
   background: none;
@@ -65,18 +65,4 @@
 .sidebar__edit-button:hover,
 .sidebar__signout-button:hover {
   opacity: 0.6;
-}
-
-.sidebar__avatar-placeholder {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background-color: #c4c4c4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Cabinet-Grotesk", sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: #fff;
 }

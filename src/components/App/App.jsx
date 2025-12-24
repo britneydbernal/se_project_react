@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import "./App.css";
-import { coordinates, APIkey } from "../../utils/clothingItems";
+import { coordinates, apiKey } from "../../utils/clothingItems";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import AddItemModal from "../AddItemModal/AddItemModal";
@@ -20,6 +20,7 @@ import {
   getItems,
   removeItem,
   updateProfile,
+  removeCardLike,
 } from "../../utils/api";
 import { register, signIn, checkToken } from "../../utils/auth";
 
@@ -57,7 +58,7 @@ function App() {
       weather: inputValues.weather,
     };
 
-    addItem(newCardData, token)
+    return addItem(newCardData, token)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
         closeActiveModal();
@@ -85,12 +86,6 @@ function App() {
     setActiveModal("");
   };
 
-  //const handleAddItemSubmit = (e) => {
-  //e.preventDefault();
-  //console.log("New garment submitted!");
-  //closeActiveModal();
-  //};
-
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (token) {
@@ -107,7 +102,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getWeather(coordinates, APIkey)
+    getWeather(coordinates, apiKey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
@@ -162,6 +157,13 @@ function App() {
       });
   };
 
+  const handleSignOut = () => {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+    setCurrentUser(null);
+    navigate("/");
+  };
+
   const handleUpdateProfile = ({ name, avatar }) => {
     const token = localStorage.getItem("jwt");
     updateProfile({ name, avatar }, token)
@@ -180,14 +182,14 @@ function App() {
       ? addCardLike(id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((item) => (item.id === id ? updatedCard : item))
+              cards.map((item) => (item._id === id ? updatedCard : item))
             );
           })
           .catch((err) => console.log(err))
       : removeCardLike(id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((item) => (item.id === id ? updatedCard : item))
+              cards.map((item) => (item._id === id ? updatedCard : item))
             );
           })
           .catch((err) => console.log(err));
@@ -198,7 +200,7 @@ function App() {
     removeItem(itemId, token)
       .then(() => {
         setClothingItems((prevItems) =>
-          prevItems.filter((item) => item.id !== itemId)
+          prevItems.filter((item) => item._id !== itemId)
         );
         closeActiveModal();
       })
@@ -238,17 +240,25 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
+                    onCardLike={handleCardLike}
                   />
                 }
               />
               <Route
                 path="/profile"
                 element={
-                  <Profile
-                    onCardClick={handleCardClick}
-                    clothingItems={clothingItems}
-                    handleAddClick={handleAddClick}
-                  />
+                  isLoggedIn ? (
+                    <Profile
+                      onCardClick={handleCardClick}
+                      clothingItems={clothingItems}
+                      handleAddClick={handleAddClick}
+                      handleEditProfileClick={handleEditProfileClick}
+                      onCardLike={handleCardLike}
+                      onSignOut={handleSignOut}
+                    />
+                  ) : (
+                    <Navigate to="/" replace />
+                  )
                 }
               />
             </Routes>

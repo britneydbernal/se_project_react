@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:3001/api";
+const baseUrl = "http://localhost:3001";
 
 const checkResponse = (res) => {
   if (res.ok) {
@@ -7,7 +7,7 @@ const checkResponse = (res) => {
   return Promise.reject(`Error: ${res.status}`);
 };
 
-export const register = (name, email, password) => {
+export const register = (name, avatar, email, password) => {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {

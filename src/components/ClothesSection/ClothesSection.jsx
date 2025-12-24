@@ -12,7 +12,7 @@ export default function ClothesSection({
   const { currentUser } = useContext(CurrentUserContext);
 
   const userItems = clothingItems.filter(
-    (item) => item.owner === currentUser._id
+    (item) => item.owner === currentUser?._id
   );
 
   return (
@@ -28,7 +28,7 @@ export default function ClothesSection({
         </button>
       </div>
       <ul className="clothes-section__list">
-        {clothingItems.map((item) => {
+        {userItems.map((item) => {
           return (
             <ItemCard
               key={item._id}

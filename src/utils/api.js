@@ -5,7 +5,7 @@ const handleServerResponse = (res) => {
 };
 
 export const getItems = () => {
-  return fetch(`$baseUrl}/items`, {
+  return fetch(`${baseUrl}/items`, {
     headers: {
       "Content-Type": "application/json",
     },
