@@ -252,7 +252,7 @@ function App() {
                       onCardClick={handleCardClick}
                       clothingItems={clothingItems}
                       handleAddClick={handleAddClick}
-                      handleEditProfileClick={handleEditProfileClick}
+                      onEditProfileClick={handleEditProfileClick}
                       onCardLike={handleCardLike}
                       onSignOut={handleSignOut}
                     />
