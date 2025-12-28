@@ -115,7 +115,6 @@ function App() {
         setClothingItems(data.data.reverse());
       })
       .catch(console.error);
-    console.error("Error loading items:", err);
   }, []);
 
   const handleRegister = ({ name, avatar, email, password }) => {
