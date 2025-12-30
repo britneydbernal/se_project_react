@@ -101,7 +101,7 @@
 .modal__submit {
   margin-top: 32px;
   height: 36px;
-  width: 100%;
+  width: 124px;
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
@@ -119,6 +119,28 @@
 
 .modal__submit:disabled {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal__link-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.5);
+  padding: 0;
+  text-decoration: underline;
+  margin-top: 32px;
+  margin-left: 24px;
+  transition: opacity 0.3s ease;
+  height: 36px;
+  display: inline-flex;
+  align-self: flex-start;
+}
+
+.modal__link-button:hover {
+  opacity: 0.6;
 }
 
 .modal__link {

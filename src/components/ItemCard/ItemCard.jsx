@@ -10,6 +10,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
   };
 
   const isLiked = item.likes?.some((id) => id === currentUser?._id);
+  const isOwner = item.owner === currentUser?._id;
 
   const handleLike = () => {
     e.stopPropagation();
@@ -22,22 +23,24 @@ function ItemCard({ item, onCardClick, onCardLike }) {
 
   return (
     <li className="card">
-      <div className="card__header">
-        <h2 className="card__name">{item.name}</h2>
-        {isLoggedIn && (
-          <button
-            type="button"
-            className={likeButtonClassName}
-            onClick={handleLike}
-          />
-        )}
+      <div className="card__image-container">
+        <img
+          onClick={handleCardClick}
+          className="card__image"
+          src={item.imageUrl}
+          alt={item.name}
+        />
+        <div className="card__header">
+          <h2 className="card__name">{item.name}</h2>
+          {isLoggedIn && (
+            <button
+              type="button"
+              className={likeButtonClassName}
+              onClick={handleLike}
+            />
+          )}
+        </div>
       </div>
-      <img
-        onClick={handleCardClick}
-        className="card__image"
-        src={item.imageUrl}
-        alt={item.name}
-      />
     </li>
   );
 }

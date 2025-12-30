@@ -29,14 +29,15 @@
   height: auto;
   display: block;
   object-fit: cover;
+  max-height: 610px;
 }
 
 .item-modal__footer {
-  margin-top: auto;
-  padding: 16px;
+  padding: 20px;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
 }
 
 .item-modal__caption {
@@ -44,22 +45,26 @@
   font-weight: 700;
   line-height: 24px;
   margin: 0;
+  color: #000;
 }
 
 .item-modal__weather {
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .item-modal__close {
   position: absolute;
   top: 12px;
-  right: 12px;
+  right: 28px;
   background: none;
   border: none;
   cursor: pointer;
   z-index: 10;
+  padding: 0;
 }
 
 .item-modal__close-icon {
@@ -69,13 +74,18 @@
 }
 
 .item-modal__delete-button {
-  margin-top: 12px;
-  padding: 8px 16px;
+  padding: 0;
   background: none;
-  color: rgba(255, 77, 0, 1);
+  color: #ff4d00;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  transition: opacity 0.3s ease;
+}
+
+.item-modal__delete-button:hover {
+  opacity: 0.6;
 }

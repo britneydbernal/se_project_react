@@ -80,10 +80,13 @@ const RegisterModal = ({ isOpen, onClose, onRegister, onSignInClick }) => {
           onChange={handleChange}
         />
       </label>
-      <button type="button" className="modal__link" onClick={onSignInClick}>
-        or Sign
+      <button
+        type="button"
+        className="modal__link-button"
+        onClick={onSignInClick}
+      >
+        or Sign In
       </button>
-      In
     </ModalWithForm>
   );
 };

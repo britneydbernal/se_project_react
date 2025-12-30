@@ -120,7 +120,7 @@ function App() {
   }, []);
 
   const handleRegister = ({ name, avatar, email, password }) => {
-    register(name, avatar, email, password)
+    register({ name, avatar, email, password })
       .then(() => {
         return signIn({ email, password });
       })
@@ -137,7 +137,7 @@ function App() {
         navigate("/profile");
       })
       .catch((err) => {
-        console.error("Registrationerror:", err);
+        console.error("Registration error:", err);
       });
   };
 
@@ -185,14 +185,14 @@ function App() {
       ? addCardLike(id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item))
+              cards.map((item) => (item._id === id ? updatedCard.data : item))
             );
           })
           .catch((err) => console.log(err))
       : removeCardLike(id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item))
+              cards.map((item) => (item._id === id ? updatedCard.data : item))
             );
           })
           .catch((err) => console.log(err));
