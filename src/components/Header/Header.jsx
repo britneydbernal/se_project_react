@@ -73,7 +73,7 @@ function Header({
             type="button"
             className="header__signin-button"
           >
-            Sign In
+            Log In
           </button>
         </div>
       )}

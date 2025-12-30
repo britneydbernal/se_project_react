@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState, useCallback, useRef } from "react";
 
 export function useForm(defaultValues) {
+  const defaultValueRef = useRef(defaultValues);
   const [values, setValues] = useState(defaultValues);
 
   function handleChange(evt) {
     const { name, value } = evt.target;
-    setValues({ ...values, [name]: value });
+    setValues((prevValues) => ({ ...prevValues, [name]: value }));
   }
 
-  return { values, handleChange, setValues };
+  const resetForm = useCallback(() => {
+    setValues(defaultValues);
+  }, [defaultValues]);
+
+  return { values, handleChange, setValues, resetForm };
 }

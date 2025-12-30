@@ -14,6 +14,7 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import Footer from "../Footer/Footer";
 import CurrentTemperatureUnitContext from "../../context/CurrentTemperatureUnit";
 import CurrentUserContext from "../../context/CurrentUserContext";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import {
   addCardLike,
   addItem,
@@ -52,6 +53,7 @@ function App() {
 
   const onAddItem = (inputValues) => {
     const token = localStorage.getItem("jwt");
+
     const newCardData = {
       name: inputValues.name,
       imageUrl: inputValues.imageUrl,
@@ -60,7 +62,7 @@ function App() {
 
     return addItem(newCardData, token)
       .then((data) => {
-        setClothingItems([data, ...clothingItems]);
+        setClothingItems([data.data, ...clothingItems]);
         closeActiveModal();
       })
       .catch(console.error);
@@ -231,7 +233,6 @@ function App() {
               onRegisterClick={handleRegisterClick}
               onSignInClick={handleSignInClick}
               isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
             />
             <Routes>
               <Route
@@ -248,7 +249,7 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  isLoggedIn ? (
+                  <ProtectedRoute>
                     <Profile
                       onCardClick={handleCardClick}
                       clothingItems={clothingItems}
@@ -257,9 +258,7 @@ function App() {
                       onCardLike={handleCardLike}
                       onSignOut={handleSignOut}
                     />
-                  ) : (
-                    <Navigate to="/" replace />
-                  )
+                  </ProtectedRoute>
                 }
               />
             </Routes>
