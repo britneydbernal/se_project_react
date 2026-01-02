@@ -10,9 +10,8 @@ function ItemCard({ item, onCardClick, onCardLike }) {
   };
 
   const isLiked = item.likes?.some((id) => id === currentUser?._id);
-  const isOwner = item.owner === currentUser?._id;
 
-  const handleLike = () => {
+  const handleLike = (e) => {
     e.stopPropagation();
     onCardLike({ id: item._id, isLiked });
   };
