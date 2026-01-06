@@ -76,14 +76,17 @@
 .modal__input {
   display: block;
   width: 100%;
-  padding: 16px 12px;
-  border-radius: 4px;
   border: none;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(0, 0, 0, 1);
   font-family: "Cabinet Grotesk", sans-serif;
   font-size: 16px;
   line-height: 20px;
+}
+
+.modal__input:focus {
+  outline: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 
 .modal__input::placeholder {
@@ -111,6 +114,8 @@
   font-weight: 700;
   cursor: pointer;
   transition: background 0.2s;
+  display: inline-flex;
+  align-items: center;
 }
 
 .modal__submit:hover {
@@ -136,7 +141,7 @@
   transition: opacity 0.3s ease;
   height: 36px;
   display: inline-flex;
-  align-self: flex-start;
+  align-items: center;
 }
 
 .modal__link-button:hover {

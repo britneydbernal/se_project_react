@@ -6,6 +6,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
   const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
 
   const handleCardClick = () => {
+    console.log("Item clicked:", item);
     onCardClick(item);
   };
 
@@ -21,24 +22,19 @@ function ItemCard({ item, onCardClick, onCardLike }) {
   }`;
 
   return (
-    <li className="card">
+    <li className="card" onClick={handleCardClick}>
+      <div className="card__header">
+        <h2 className="card__name">{item.name}</h2>
+        {isLoggedIn && (
+          <button
+            type="button"
+            className={likeButtonClassName}
+            onClick={handleLike}
+          />
+        )}
+      </div>
       <div className="card__image-container">
-        <img
-          onClick={handleCardClick}
-          className="card__image"
-          src={item.imageUrl}
-          alt={item.name}
-        />
-        <div className="card__header">
-          <h2 className="card__name">{item.name}</h2>
-          {isLoggedIn && (
-            <button
-              type="button"
-              className={likeButtonClassName}
-              onClick={handleLike}
-            />
-          )}
-        </div>
+        <img className="card__image" src={item.imageUrl} alt={item.name} />
       </div>
     </li>
   );
