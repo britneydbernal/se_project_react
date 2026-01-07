@@ -6,6 +6,8 @@
 }
 
 .page__content {
+  width: 100%;
+  box-sizing: border-box;
   max-width: 1360px;
   margin: 0 auto;
   padding: 0 20px;

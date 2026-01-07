@@ -53,13 +53,18 @@ const LoginModal = ({ isOpen, onClose, onLogin, onRegisterClick }) => {
           required
         />
       </label>
-      <button
-        type="button"
-        className="modal__link-button"
-        onClick={onRegisterClick}
-      >
-        or Sign up
-      </button>
+      <div className="modal__botton-container">
+        <button type="submit" className="modal__submit-button">
+          Log in
+        </button>
+        <button
+          type="button"
+          className="modal__link-button"
+          onClick={onRegisterClick}
+        >
+          or Sign up
+        </button>
+      </div>
     </ModalWithForm>
   );
 };

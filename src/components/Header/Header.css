@@ -12,6 +12,8 @@
 }
 
 .header__date-and-location {
+  display: flex;
+  flex-grow: 1;
   margin: 0;
 }
 
