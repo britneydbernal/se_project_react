@@ -59,6 +59,9 @@ const EditProfileModal = ({ isOpen, onClose, onUpdateProfile }) => {
           required
         />
       </label>
+      <button type="submit" className="modal__submit-button">
+        Save changes
+      </button>
     </ModalWithForm>
   );
 };
