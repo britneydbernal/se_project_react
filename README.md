@@ -20,8 +20,7 @@ WTWR is a weather-based clothing recomendation app built with React. It shows re
 ## Installation
 
 - Deployment Link: https://github.com/britneydbernal/se_project_react.git
-
-- Video Link : https://drive.google.com/file/d/1eeG77XJfyafUlG_xCoummE8PD8lrltRs/view?usp=sharing
+  -Pitch Video: https://drive.google.com/file/d/1eeG77XJfyafUlG_xCoummE8PD8lrltRs/view?usp=sharing
 
 ## Backend
 

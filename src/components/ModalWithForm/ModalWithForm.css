@@ -167,3 +167,27 @@
 .modal__link:hover {
   opacity: 0.6;
 }
+
+.modal__legend {
+  margin: 0 0 8px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 1);
+}
+
+.modal__label_type_radio {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  color: rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+
+.modal__radio-input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin: 0;
+}
